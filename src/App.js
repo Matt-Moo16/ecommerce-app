@@ -1,14 +1,14 @@
-import React from 'react'
-import NavBar from './Components/NavBar/NavBar'
-import Products from './Components/Products/Products'
+import React from "react";
+import NavBar from "./Components/NavBar/NavBar";
+import Products from "./Components/Products/Products";
 
 const App = () => {
   return (
-    <div className='App'>
+    <div className="App">
       <NavBar />
       <Products />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
