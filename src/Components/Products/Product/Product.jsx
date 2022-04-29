@@ -8,6 +8,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
+import {ContentDiv} from './styles'
 
 const Product = ({ product }) => {
   return (
@@ -18,12 +19,12 @@ const Product = ({ product }) => {
         title={product.name}
       />
       <CardContent>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <ContentDiv>
           <Typography variant="h5" gutterBottom>
             {product.name}
           </Typography>
           <Typography variant="h5">{product.price}</Typography>
-        </div>
+        </ContentDiv>
         <Typography variant="body2" color="textSecondary">
           {product.description}
         </Typography>
