@@ -1,0 +1,112 @@
+import React, {useState, useEffect} from 'react'
+import {Paper, Stepper, Step, StepLabel, Typography, CicularProgress, Divider, Button, CircularProgress} from "@mui/material"
+import AddressForm from '../AddressForm'
+import PaymentForm from '../PaymentForm'
+import { commerce } from '../../../lib/commerce'
+import { Link, useNavigate } from 'react-router-dom'
+
+const steps = ['Shipping Address', 'Payment Details']
+
+const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+    const [activeStep, setActiveStep] = useState(0)
+    const [checkoutToken, setCheckoutToken] = useState(null)
+    const [shippingData, setShippingData] = useState({})
+    const [isFinished, setIsFinished] = useState(false)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const generateToken = async () => {
+            try {
+                const token = await commerce.checkout.generateToken(cart.id, {type: 'cart'})
+                setCheckoutToken(token)
+            } catch (error) {
+                navigate('/')
+            }
+        }
+
+        generateToken()
+    }, [cart])
+
+    const nextStep = () => setActiveStep((previousActiveStep) => previousActiveStep + 1)
+    const backStep = () => setActiveStep((previousActiveStep) => previousActiveStep - 1)
+
+    const next = (data) => {
+        setShippingData(data);
+        nextStep()
+    }
+
+    const Form = () => activeStep === 0 
+        ? <AddressForm checkoutToken={checkoutToken} next={next} setShippingData={setShippingData}/>
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} onCaptureCheckout={onCaptureCheckout} nextStep={nextStep} />
+
+
+    let Confirmation = () => (order.customer ? (
+        <>
+            <div>
+                <Typography variant='h5'>Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}! </Typography>
+                <Divider sx={{margin: '20px 0px'}}/>
+                <Typography>Order ref: {order.customer_reference}</Typography>
+            </div>
+            <br />
+            <Button component={Link} to='/'variant='outlined' type='button'>Back To Home</Button>
+        </>
+    ) : (
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+            <CircularProgress />
+        </div>
+    ))
+
+    if (error) {
+        Confirmation = () => (
+          <>
+            <Typography variant="h5">Error: {error}</Typography>
+            <br />
+            <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+          </>
+        );
+      }
+
+  return (
+    <>
+        <div style={{paddingTop: '100px'}}/>
+        {/* Need to figure out */}
+        <main style={{
+            marginTop: '5%',
+            width: 'auto',
+            marginLeft: '16px',
+            marginRight: '16px',
+            '@media minWidth: 600': {
+              width: '50px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }
+        }}>
+            <Paper sx={{
+                marginTop: '24px',
+                marginBottom: '24px',
+                padding: '16px',
+        '@media maxWidth: -0.05px': {
+        width: '100%',
+        marginTop: 60,
+        },
+        '@media minWidth: NaNpx': {
+        marginTop: '48px',
+        marginBottom: '48px',
+        padding: '24px',
+            }}}>
+                <Typography variant='h4' align='center'>Checkout</Typography>
+                <Stepper sx={{padding: '24px 0px 40px'}} activeStep={activeStep}>
+                    {steps.map((step) => (
+                        <Step key={step}>
+                            <StepLabel>{step}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+                {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
+            </Paper>
+        </main>
+    </>
+  )
+}
+
+export default Checkout
