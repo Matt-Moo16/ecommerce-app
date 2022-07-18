@@ -11,7 +11,7 @@ const FormInput = ({name, label, required}) => {
         control={control}
         name={name}
         render={({ field: {onChange} }) => (
-          <TextField fullWidth label={label} required={required} onChange={onChange}/>
+          <TextField fullWidth label={label} required={required} onChange={onChange} sx={{fontFamily: 'Crimson Text'}} color='primary'/>
         )}
         />
     </Grid>

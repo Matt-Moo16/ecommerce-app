@@ -7,9 +7,9 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     
 
     const EmptyCart = () => (
-        <Typography variant='subtitle1'>
+        <Typography variant='subtitle1' sx={{fontFamily: 'Crimson Text'}}>
             You have no items in your shopping cart, 
-            <Link style={{textDecoration: 'none', color: 'secondary'}} to='/'> start adding some</Link>!
+            <Link style={{textDecoration: 'none', color: '#B27701'}} to='/'> start adding some</Link>!
         </Typography>
     )
 
@@ -26,16 +26,16 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                             marginTop: '10%',
                             width: '100%',
                             justifyContent: 'space-between',}}>
-                <Typography>
+                <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '18px'}}>
                     Subtotal: {cart.subtotal.formatted_with_symbol}
                 </Typography>
                 <div>
                     <Button
                         size='large'
                         type='button'
-                        variant='contained'
+                        variant='outlined'
                         color='secondary'
-                        sx={{minWidth: '150px'}}
+                        sx={{minWidth: '150px', fontFamily: 'Crimson Text'}}
                         onClick={() => {handleEmptyCart()}}
                     >
                         Empty Cart
@@ -47,7 +47,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                         type='button'
                         variant='contained'
                         color='primary'
-                        sx={{minWidth: '150px', marginLeft: '10px'}}
+                        sx={{minWidth: '150px', marginLeft: '10px', fontFamily: 'Crimson Text'}}
                     >
                         Checkout
                     </Button>
@@ -61,7 +61,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
   return (
     <Container>
         <SpaceAbove />
-        <Typography sx={{marginTop: '5%' }} variant='h3' gutterBottom>Your Shopping Cart</Typography>
+        <Typography sx={{marginTop: '5%', fontFamily: 'Crimson Text' }} variant='h3' gutterBottom>Your Shopping Cart</Typography>
         { !cart.line_items.length ? <EmptyCart /> : <FilledCart />}
     </Container>
   )

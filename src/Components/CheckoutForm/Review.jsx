@@ -4,17 +4,17 @@ import { Typography, List, ListItem, ListItemText } from '@mui/material'
 const Review = ({ checkoutToken }) => {
   return (
     <>
-        <Typography variant='h6' gutterBottom >Order Summary</Typography>
+        <Typography variant='h6' gutterBottom  sx={{fontFamily: 'Crimson Text'}}>Order Summary</Typography>
         <List disablePadding>
             {checkoutToken.live.line_items.map((product) => (
-                <ListItem style={{padding: '10px 0px'}} key={product.name}>
-                    <ListItemText primary={product.name} secondary={`Quantity: ${product.quantity}`} />
-                    <Typography variant='body2'>{product.line_total.formatted_with_symbol}</Typography>
+                <ListItem sx={{padding: '10px 0px'}} key={product.name}>
+                    <ListItemText primary={product.name} secondary={`Quantity: ${product.quantity}`} primaryTypographyProps={{fontFamily: 'Crimson Text', fontSize: '18px'}} secondaryTypographyProps={{fontFamily: 'Crimson Text'}}/>
+                    <Typography variant='body2' sx={{fontFamily: 'Crimson Text'}}>{product.line_total.formatted_with_symbol}</Typography>
                 </ListItem>
             ))}
-            <ListItem style={{padding: '10px 0px'}}>
-                <ListItemText primary='Total'/>
-                <Typography variant='subtitle1' style={{fontWeight: 700}}>
+            <ListItem sx={{padding: '10px 0px'}}>
+                <ListItemText primary='Total' primaryTypographyProps={{fontFamily: 'Crimson Text', fontSize: '16px'}}/>
+                <Typography variant='subtitle1' sx={{fontWeight: 700, fontFamily: 'Crimson Text'}}>
                     {checkoutToken.live.subtotal.formatted_with_symbol}
                 </Typography>
             </ListItem>

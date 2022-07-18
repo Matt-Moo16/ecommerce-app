@@ -5,12 +5,34 @@ import Products from "./Components/Products/Products";
 import Checkout from "./Components/CheckoutForm/Checkout/Checkout"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { commerce } from './lib/commerce'
+import {createTheme, ThemeProvider} from '@mui/material/styles'
+import './App.css'
+import FeaturedBrands from "./Components/FeaturedBrands/FeaturedBrands";
+
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#6F7D16'
+      },
+      secondary: {
+        main: '#B27701',
+        textSecondary: '#fff'
+      },
+      info: {
+        main: '#2F4858'
+      }
+    },
+    listItemText: {
+      fontFamily: 'Crimson Text'
+    }
+  })
 
   const fetchProducts = async () => {
     const { data }= await commerce.products.list()
@@ -71,14 +93,16 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
-      <NavBar totalItems={cart.total_items} />
-      <Routes>
-        <Route exact path='/' element={<Products products={products} onAddToCart={handleAddToCart} />} />
-        <Route exact path='/cart' element={<Cart cart={cart} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>}/>
-        <Route exact path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />} />
-      </Routes>
-    </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <NavBar totalItems={cart.total_items} />
+          <Routes>
+            <Route exact path='/' element={ <><FeaturedBrands /> <Products products={products} onAddToCart={handleAddToCart} /></>} />
+            <Route exact path='/cart' element={<Cart cart={cart} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>}/>
+            <Route exact path='/checkout' element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
     </Router>
   );
 };

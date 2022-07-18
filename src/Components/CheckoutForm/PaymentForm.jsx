@@ -47,7 +47,7 @@ const PaymentForm = ({ checkoutToken, backStep, onCaptureCheckout, nextStep, shi
     <>
         <Review checkoutToken={checkoutToken}/> 
         <Divider />
-        <Typography variant='h6' gutterBottom style={{margin: '20px 0px'}}>Payment Method</Typography>
+        <Typography variant='h6' gutterBottom sx={{margin: '20px 0px', fontFamily: 'Crimson Text'}}>Payment Method</Typography>
         <Elements stripe={stripePromise}>
             <ElementsConsumer>
                 {({ elements, stripe }) => (
@@ -55,9 +55,17 @@ const PaymentForm = ({ checkoutToken, backStep, onCaptureCheckout, nextStep, shi
                         <CardElement />
                         <br />
                         <br />
+                        <div style={{display: 'flex', flexDirection: 'column', marginBottom: '10px'}}>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>This app is for testing purposes. Any card information inputed will not be charged.</Typography>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>If you do not wish to input a card use the test card below.</Typography>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>Test Card Info: 4242 4242 4242 4242 4242</Typography>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>MM/YY: 04/24</Typography>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>CVV: 242</Typography>
+                            <Typography sx={{fontFamily: 'Crimson Text', fontWeight: 'bold', fontSize: '14px'}}>ZIP: 42424</Typography>
+                        </div>
                         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                            <Button variant='outlined' onClick={backStep}>Back</Button>
-                            <Button type='submit' variant='contained' disabled={!stripe} color='primary'>
+                            <Button variant='outlined' onClick={backStep} color='secondary' sx={{fontFamily: 'Crimson Text', fontSize: '16px'}}>Back</Button>
+                            <Button type='submit' variant='contained' disabled={!stripe} color='primary' sx={{fontFamily: 'Crimson Text', fontSize: '16px'}}>
                                 Pay { checkoutToken.live.subtotal.formatted_with_symbol}
                             </Button>
                         </div>

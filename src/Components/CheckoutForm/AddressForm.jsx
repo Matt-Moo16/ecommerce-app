@@ -53,7 +53,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
   return (
     <>
-        <Typography variant='h6' gutterBottom>Shipping Address</Typography>
+        <Typography variant='h6' gutterBottom sx={{fontFamily: 'Crimson Text'}}>Shipping Address</Typography>
         <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                 <Grid container spacing={3}>
@@ -64,7 +64,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                     <FormInput required name='city' label='City'/>
                     <FormInput required name='zip' label='ZIP / Postal Code'/>
                     <Grid item xs={12} sm={6} >
-                        <InputLabel>Shipping Country</InputLabel>
+                        <InputLabel sx={{fontFamily: 'Crimson Text'}}>Shipping Country</InputLabel>
                         <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                             {countries.map((country) => (
                                 <MenuItem key={country.id} value={country.id}>
@@ -74,7 +74,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                         </Select>
                     </Grid>
                     <Grid item xs={12} sm={6} >
-                        <InputLabel>Shipping Subdivision</InputLabel>
+                        <InputLabel sx={{fontFamily: 'Crimson Text'}}>Shipping Subdivision</InputLabel>
                         <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                             {subdivisions.map((subdivision) => (
                                 <MenuItem key={subdivision.id} value={subdivision.id}>
@@ -84,7 +84,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                         </Select>
                     </Grid>
                     <Grid item xs={12} sm={6} >
-                        <InputLabel>Shipping Options</InputLabel>
+                        <InputLabel sx={{fontFamily: 'Crimson Text'}}>Shipping Options</InputLabel>
                         <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                             {options.map((option) => (
                                 <MenuItem key={option.id} value={option.id}>
@@ -96,8 +96,8 @@ const AddressForm = ({ checkoutToken, next }) => {
                 </Grid>
                 <br />
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <Button component={Link} to='/cart' variant='outlined'>Back To Cart</Button>
-                    <Button type='submit' variant='contained' color='primary'>Next</Button>
+                    <Button component={Link} to='/cart' variant='outlined' color='secondary' sx={{fontFamily: 'Crimson Text'}}>Back To Cart</Button>
+                    <Button type='submit' variant='contained' color='primary' sx={{fontFamily: 'Crimson Text'}}>Next</Button>
                 </div>
             </form>
         </FormProvider>

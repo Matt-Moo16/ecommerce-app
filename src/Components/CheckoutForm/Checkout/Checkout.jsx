@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Paper, Stepper, Step, StepLabel, Typography, CicularProgress, Divider, Button, CircularProgress} from "@mui/material"
+import {Paper, Stepper, Step, StepLabel, Typography, Divider, Button, CircularProgress} from "@mui/material"
 import AddressForm from '../AddressForm'
 import PaymentForm from '../PaymentForm'
 import { commerce } from '../../../lib/commerce'
@@ -14,13 +14,14 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [isFinished, setIsFinished] = useState(false)
     const navigate = useNavigate()
 
+
     useEffect(() => {
         const generateToken = async () => {
             try {
                 const token = await commerce.checkout.generateToken(cart.id, {type: 'cart'})
                 setCheckoutToken(token)
             } catch (error) {
-                navigate('/')
+                console.log(error)
             }
         }
 
@@ -43,12 +44,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     let Confirmation = () => (order.customer ? (
         <>
             <div>
-                <Typography variant='h5'>Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}! </Typography>
+                <Typography variant='h5' sx={{fontFamily: 'Crimson Text'}}>Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}! </Typography>
                 <Divider sx={{margin: '20px 0px'}}/>
-                <Typography>Order ref: {order.customer_reference}</Typography>
+                <Typography sx={{fontFamily: 'Crimson Text'}}>Order ref: {order.customer_reference}</Typography>
             </div>
             <br />
-            <Button component={Link} to='/'variant='outlined' type='button'>Back To Home</Button>
+            <Button component={Link} to='/'variant='outlined' type='button' sx={{fontFamily: 'Crimson Text'}} color='secondary'>Back To Home</Button>
         </>
     ) : (
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
@@ -59,9 +60,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     if (error) {
         Confirmation = () => (
           <>
-            <Typography variant="h5">Error: {error}</Typography>
+            <Typography variant="h5" sx={{fontFamily: 'Crimson Text'}}>Error: {error}</Typography>
             <br />
-            <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+            <Button component={Link} variant="outlined" type="button" to="/" sx={{fontFamily: 'Crimson Text'}}>Back to home</Button>
           </>
         );
       }
@@ -94,8 +95,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         marginBottom: '48px',
         padding: '24px',
             }}}>
-                <Typography variant='h4' align='center'>Checkout</Typography>
-                <Stepper sx={{padding: '24px 0px 40px'}} activeStep={activeStep}>
+                <Typography variant='h4' align='center' sx={{fontFamily: 'Crimson Text'}}>Checkout</Typography>
+                <Stepper sx={{padding: '24px 0px 40px'}} activeStep={activeStep} >
                     {steps.map((step) => (
                         <Step key={step}>
                             <StepLabel>{step}</StepLabel>
