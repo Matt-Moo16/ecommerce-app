@@ -59,18 +59,8 @@ const FeaturedBrands = () => {
         flexDirection: "column",
       }}
     >
-      <Typography
-        variant="h4"
-        sx={{
-          fontFamily: "Crimson Text",
-          marginLeft: "10px",
-          alignSelf: "flex-start",
-        }}
-      >
-        Men's Vintage Designer
-      </Typography>
       <ImageList
-        sx={{ width: "100%", height: "600px", justifyContent: "flex-end" }}
+        sx={{ width: "100%", height: "600px", justifyContent: "flex-end", marginTop: 0}}
         cols={4}
         rows={2}
         variant="masonry"
@@ -93,16 +83,6 @@ const FeaturedBrands = () => {
           </ImageListItem>
         ))}
       </ImageList>
-      <Typography
-        variant="h4"
-        sx={{
-          fontFamily: "Crimson Text",
-          marginRight: "10px",
-          alignSelf: "flex-end",
-        }}
-      >
-        At prices you can afford!{" "}
-      </Typography>
     </div>
   );
 };
