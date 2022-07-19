@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# **Vintager 👕**
+---
+ Hello! Thank you for stopping by and checking out [**Vintager**](https://ecommerce-app-matt-moo16.vercel.app/), a men's vintage designer e-commerce store. It was built using [React](https://reactjs.org/), [Material UI](https://mui.com/), [CommerceJS](https://commercejs.com/) 
+ 
+ Vintager is a men's vintage designer web store with a fully functioning checkout flow. Utilizing CommerceJS for cart managment and shipping information and email order conformation, and Stripe for payment information/intergration.     
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ##### Table Of Contents
+ - Technologies Used
+ - Run It Locally
+ - Walk-Through + User Flow
 
-## Available Scripts
+## 🖥️  Technologies Used
+---
+- **React**
+- **Material UI**
+-  **Commerce JS**
+-  **Stripe(React Elements)**
 
-In the project directory, you can run:
+## 🏃‍♀️ Run It Locally
+---
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites 
+1. Make sure you have `node` installed. To verify this, run `node -v`. 
+ 2. Make sure you have `npm` installed. To verify this, run `npm -v`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Instructions
+**First-Time Setup**
+1. Clone this repository. This will create a local directory called `ecommerce-app`.
+2. `cd` into your `ecommerce-app` directory.
+3. Run `npm install` in the `ecommerce-app` directory to install all dependencies needed. 
+4. Once all dependencies are installed run `npm start`.
 
-### `npm test`
+**General Instructions**
+Once all of the above is done the app should be running locally. After `npm start` executes a webpage should open automatically in your browser of choice. The webpage should have a *localhost* URL. (Ex: **localhost3000**)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚶‍♂️ Walk-Through + User Flow
+---
 
-### `npm run build`
+**Cart Functionality Walk-Through:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Vintager-Cart-Functionality](https://user-images.githubusercontent.com/65912593/179662867-f0cb93e0-d1d7-41d9-8a56-3133e213d8be.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Checkout Walk-Through:**
 
-### `npm run eject`
+![Vintager-Checkout-Flow](https://user-images.githubusercontent.com/65912593/179663652-f4dfc620-df0b-4052-b032-0e13b9b136a6.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Email Conformation:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Email-Conformation](https://user-images.githubusercontent.com/65912593/179664712-788699d6-ff6c-4011-bfbf-7deea6084a51.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
