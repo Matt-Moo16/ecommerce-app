@@ -5,19 +5,19 @@
  Vintager is a men's vintage designer web store with a fully functioning checkout flow. Utilizing CommerceJS for cart managment and shipping information and email order conformation, and Stripe for payment information/intergration.     
 
  ##### Table Of Contents
- - Technologies Used
- - Run It Locally
- - Walk-Through + User Flow
+ - [Technologies Used](https://github.com/Matt-Moo16/ecommerce-app#%EF%B8%8F--technologies-used)
+ - [Run It Locally](https://github.com/Matt-Moo16/ecommerce-app#%EF%B8%8F-run-it-locally)
+ - [Walk-Through + User Flow](https://github.com/Matt-Moo16/ecommerce-app#%EF%B8%8F-walk-through--user-flow)
 
 ## 🖥️  Technologies Used
----
+
 - **React**
 - **Material UI**
 -  **Commerce JS**
 -  **Stripe(React Elements)**
 
 ## 🏃‍♀️ Run It Locally
----
+
 
 
 ### Prerequisites 
@@ -35,7 +35,7 @@
 Once all of the above is done the app should be running locally. After `npm start` executes a webpage should open automatically in your browser of choice. The webpage should have a *localhost* URL. (Ex: **localhost3000**)
 
 ## 🚶‍♂️ Walk-Through + User Flow
----
+
 
 **Cart Functionality Walk-Through:**
 
